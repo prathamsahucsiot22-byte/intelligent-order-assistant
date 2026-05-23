@@ -21,7 +21,7 @@ function App() {
     try {
 
       const response = await fetch(
-        "http://localhost:5000/api/orders/create",
+        "https://intelligent-order-assistant.onrender.com/api/orders/create",
         {
           method: "POST",
 
