@@ -4,11 +4,12 @@ function App() {
 
   const [product, setProduct] = useState("");
   const [message, setMessage] = useState("");
+  const [role, setRole] = useState("Office Head");
 
   const placeOrder = async () => {
 
     const orderData = {
-      customerName: "Ashmita",
+      customerName: role,
 
       items: [
         {
@@ -46,68 +47,120 @@ function App() {
   return (
     <div
       style={{
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
-        backgroundColor: "#f4f4f4",
-        fontFamily: "Arial"
+        background: "linear-gradient(to right, #141e30, #243b55)",
+        fontFamily: "Arial, sans-serif",
+        padding: "20px"
       }}
     >
 
       <div
         style={{
-          width: "400px",
-          padding: "30px",
+          width: "420px",
           backgroundColor: "white",
-          borderRadius: "10px",
-          boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
+          padding: "35px",
+          borderRadius: "15px",
+          boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
           textAlign: "center"
         }}
       >
 
-        <h2>Electronics Order Assistant</h2>
+        <h1
+          style={{
+            color: "#243b55",
+            marginBottom: "10px"
+          }}
+        >
+          Electronics Order Dashboard
+        </h1>
 
-        <p>
-          Enter product name to place your order
+        <p
+          style={{
+            color: "gray",
+            marginBottom: "20px",
+            fontSize: "15px"
+          }}
+        >
+          Role Based Smart Ordering System
+        </p>
+
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginBottom: "15px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            fontSize: "15px"
+          }}
+        >
+          <option>Office Head</option>
+          <option>Store Manager</option>
+          <option>Purchase Team</option>
+        </select>
+
+        <p
+          style={{
+            color: "#555",
+            marginBottom: "20px",
+            fontSize: "14px"
+          }}
+        >
+          Logged in as: <b>{role}</b>
         </p>
 
         <input
           type="text"
-          placeholder="Example: Samsung TV"
+          placeholder="Enter product name"
           value={product}
           onChange={(e) => setProduct(e.target.value)}
           style={{
             width: "100%",
-            padding: "12px",
-            marginTop: "10px",
-            borderRadius: "5px",
-            border: "1px solid gray"
+            padding: "14px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            outline: "none",
+            fontSize: "15px",
+            marginBottom: "20px"
           }}
         />
 
         <button
           onClick={placeOrder}
           style={{
-            marginTop: "15px",
-            padding: "12px 20px",
-            border: "none",
+            width: "100%",
+            padding: "14px",
             backgroundColor: "#007bff",
             color: "white",
-            borderRadius: "5px",
+            border: "none",
+            borderRadius: "8px",
+            fontSize: "16px",
             cursor: "pointer"
           }}
         >
           Place Order
         </button>
 
-        <p style={{ marginTop: "15px" }}>
-          {message}
-        </p>
+        {message && (
+          <p
+            style={{
+              marginTop: "20px",
+              color: "green",
+              fontWeight: "bold"
+            }}
+          >
+            {message}
+          </p>
+        )}
 
       </div>
 
-        </div>
+    </div>
   );
 }
 
