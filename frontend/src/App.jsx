@@ -45,123 +45,175 @@ function App() {
   };
 
   return (
+  <div
+    style={{
+      minHeight: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "linear-gradient(to right, #0f172a, #1e293b)",
+      fontFamily: "Arial, sans-serif",
+      padding: "30px"
+    }}
+  >
+
     <div
       style={{
-        minHeight: "100vh",
+        width: "950px",
+        minHeight: "520px",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "linear-gradient(to right, #141e30, #243b55)",
-        fontFamily: "Arial, sans-serif",
-        padding: "20px"
+        backgroundColor: "white",
+        borderRadius: "18px",
+        overflow: "hidden",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.3)"
       }}
     >
 
       <div
         style={{
-          width: "420px",
-          backgroundColor: "white",
-          padding: "35px",
-          borderRadius: "15px",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
+          flex: 1,
+          background: "linear-gradient(to bottom right, #2563eb, #1e40af)",
+          color: "white",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "40px",
           textAlign: "center"
         }}
       >
 
         <h1
           style={{
-            color: "#243b55",
-            marginBottom: "10px"
+            fontSize: "36px",
+            marginBottom: "20px"
           }}
         >
-          Electronics Order Dashboard
+          Smart Electronics Ordering
         </h1>
 
         <p
           style={{
-            color: "gray",
-            marginBottom: "20px",
-            fontSize: "15px"
+            fontSize: "17px",
+            lineHeight: "28px"
           }}
         >
-          Role Based Smart Ordering System
+          Manage and place electronics orders easily using a simple role-based dashboard system.
         </p>
 
-        <select
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
+      </div>
+
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "40px"
+        }}
+      >
+
+        <div
           style={{
-            width: "100%",
-            padding: "14px",
-            marginBottom: "15px",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
-            fontSize: "15px"
+            width: "100%"
           }}
         >
-          <option>Office Head</option>
-          <option>Store Manager</option>
-          <option>Purchase Team</option>
-        </select>
 
-        <p
-          style={{
-            color: "#555",
-            marginBottom: "20px",
-            fontSize: "14px"
-          }}
-        >
-          Logged in as: <b>{role}</b>
-        </p>
-
-        <input
-          type="text"
-          placeholder="Enter product name"
-          value={product}
-          onChange={(e) => setProduct(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "14px",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
-            outline: "none",
-            fontSize: "15px",
-            marginBottom: "20px"
-          }}
-        />
-
-        <button
-          onClick={placeOrder}
-          style={{
-            width: "100%",
-            padding: "14px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "16px",
-            cursor: "pointer"
-          }}
-        >
-          Place Order
-        </button>
-
-        {message && (
-          <p
+          <h2
             style={{
-              marginTop: "20px",
-              color: "green",
-              fontWeight: "bold"
+              marginBottom: "10px",
+              color: "#1e293b"
             }}
           >
-            {message}
+            Electronics Order Dashboard
+          </h2>
+
+          <p
+            style={{
+              color: "gray",
+              marginBottom: "25px"
+            }}
+          >
+            Role Based Inventory Ordering System
           </p>
-        )}
+
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "14px",
+              marginBottom: "18px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              fontSize: "15px"
+            }}
+          >
+            <option>Office Head</option>
+            <option>Store Manager</option>
+            <option>Purchase Team</option>
+          </select>
+
+          <p
+            style={{
+              marginBottom: "20px",
+              color: "#444"
+            }}
+          >
+            Logged in as: <b>{role}</b>
+          </p>
+
+          <input
+            type="text"
+            placeholder="Enter product name"
+            value={product}
+            onChange={(e) => setProduct(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "14px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              marginBottom: "20px",
+              fontSize: "15px"
+            }}
+          />
+
+          <button
+            onClick={placeOrder}
+            style={{
+              width: "100%",
+              padding: "14px",
+              backgroundColor: "#2563eb",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              fontSize: "16px",
+              cursor: "pointer"
+            }}
+          >
+            Place Order
+          </button>
+
+          {message && (
+            <p
+              style={{
+                marginTop: "20px",
+                color: "green",
+                fontWeight: "bold"
+              }}
+            >
+              {message}
+            </p>
+          )}
+
+        </div>
 
       </div>
 
     </div>
-  );
+
+  </div>
+);
 }
 
 export default App;
